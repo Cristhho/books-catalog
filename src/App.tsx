@@ -1,5 +1,5 @@
-import './App.css'
 import { useBooks } from './hooks/useBooks'
+import { Home } from './pages/Home'
 
 function App() {
   const { error, isPending } = useBooks()
@@ -8,9 +8,9 @@ function App() {
   else if (isPending) return 'loading...'
 
   return (
-    <h1 className="text-3xl font-bold underline">
-      Books
-    </h1>
+    <main className='mx-10'>
+      <Home />
+    </main>
   )
 }
 
