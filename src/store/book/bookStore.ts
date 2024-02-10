@@ -20,6 +20,13 @@ export const useBookStore = create<BookState>()(
         const updatedReading = [...reading, books[readBookIndex]]
         const updatedBooks = books.filter((book) => book.ISBN !== isbn)
         set({books: updatedBooks, reading: updatedReading})
+      },
+      removeFromRead: (isbn) => {
+        const { books, reading } = get()
+        const readBookIndex = reading.findIndex((item) => item.ISBN === isbn)
+        const updatedBooks = [...books, reading[readBookIndex]]
+        const updatedReading = reading.filter((book) => book.ISBN !== isbn)
+        set({books: updatedBooks, reading: updatedReading})
       }
     }),
     {

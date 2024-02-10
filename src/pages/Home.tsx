@@ -1,9 +1,10 @@
 import { BooksList } from '@/components/BooksList'
+import { ReadingList } from '@/components/ReadingList'
 import { useBookStore } from '@/store/book/bookStore'
 
 export const Home = () => {
   const books = useBookStore(state => state.books)
-  console.log(books)
+  const readingBooks = useBookStore(state => state.reading)
 
   return (
     <div className='py-4 flex flex-row space-x-4'>
@@ -11,7 +12,7 @@ export const Home = () => {
         <BooksList books={books} />
       </div>
       <div className='basis-2/12'>
-        Reading...
+        <ReadingList books={readingBooks} />
       </div>
     </div>
   )
