@@ -16,6 +16,8 @@ export const useBookStore = create<BookState>()(
       },
       addToRead: (isbn) => {
         const { books, reading } = get()
+        if (reading.some((book) => book.ISBN === isbn)) return;
+        
         const readBookIndex = books.findIndex((item) => item.ISBN === isbn)
         const updatedReading = [...reading, books[readBookIndex]]
         const updatedBooks = books.filter((book) => book.ISBN !== isbn)
@@ -27,6 +29,11 @@ export const useBookStore = create<BookState>()(
         const updatedBooks = [...books, reading[readBookIndex]]
         const updatedReading = reading.filter((book) => book.ISBN !== isbn)
         set({books: updatedBooks, reading: updatedReading})
+      },
+      getGenres: () => {
+        const { books } = get()
+        const genres = new Set(books.map((book) => book.genre))
+        return genres
       }
     }),
     {

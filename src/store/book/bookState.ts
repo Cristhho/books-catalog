@@ -5,5 +5,6 @@ export interface BookState {
   reading: Book[];
   setBooks: (books: Book[]) => void,
   addToRead: (isbn: string) => void,
-  removeFromRead: (isbn: string) => void
+  removeFromRead: (isbn: string) => void,
+  getGenres: () => Set<string>
 }
