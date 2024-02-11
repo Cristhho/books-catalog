@@ -9,8 +9,8 @@ export const Book = ({ book }: Props) => {
   const addToRead = useBookStore(state => state.addToRead)
 
   return (
-    <div className='cursor-pointer' onClick={() => addToRead(book.ISBN)}>
-      <img className='h-full object-cover' src={book.cover} />
+    <div className='cursor-pointer rounded overflow-hidden' onClick={() => addToRead(book.ISBN)}>
+      <img className='h-full w-full object-cover' src={book.cover} />
     </div>
   )
 }

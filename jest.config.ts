@@ -8,8 +8,7 @@ const config: JestConfigWithTsJest =  {
   },*/
   modulePaths: ['<rootDir>/'],
   moduleNameMapper: {
-    '^@/components/(.*)$': '<rootDir>/src/components/$1',
-    '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^@/(.*)$': '<rootDir>/src/$1',
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/__mocks__/fileMock.ts',
     "\\.(css)$": "<rootDir>/__mocks__/styleMock.ts"
   },

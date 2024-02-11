@@ -1,3 +1,5 @@
+import { IoMdCloseCircleOutline } from 'react-icons/io'
+
 import { Book } from '@/model'
 import { useBookStore } from '@/store/book/bookStore'
 
@@ -9,6 +11,12 @@ export const ReadingBook = ({ book }: Props) => {
   const removeFromRead = useBookStore(state => state.removeFromRead)
 
   return (
-    <div className='cursor-pointer' onClick={() => removeFromRead(book.ISBN)}>{book.title}</div>
+    <div className='flex flex-row justify-between items-center space-x-2'>
+      <span className='text-lg'>{book.title}</span>
+      <IoMdCloseCircleOutline
+        className='cursor-pointer'
+        size={24}
+        onClick={() => removeFromRead(book.ISBN)} />
+    </div>
   )
 }

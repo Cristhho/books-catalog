@@ -1,11 +1,12 @@
-import { render } from '@testing-library/react'
-
+import { QueryClient } from '@tanstack/react-query'
 import App from '../src/App'
+import { renderWithClient } from './utils'
 
-describe('<App />', () => {
+fdescribe('<App />', () => {
+  const queryClient = new QueryClient()
 
   beforeEach(() => {
-    render(<App />);
+    renderWithClient(queryClient, <App />)
   })
 
   it('should render', () => {

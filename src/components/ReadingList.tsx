@@ -7,13 +7,15 @@ type Props = {
 
 export const ReadingList = ({ books }: Props) => {
   return (
-    <div>
-      <h3 className='text-lg font-bold text-center'>Reading list</h3>
-      {
-        books.map((book) => (
-          <ReadingBook key={book.ISBN} book={book} />
-        ))
-      }
-    </div>
+    <>
+      <h3 className='text-2xl font-bold text-center'>Reading list</h3>
+      <div className='flex flex-col space-y-2'>
+        {
+          books.map((book) => (
+            <ReadingBook key={book.ISBN} book={book} />
+          ))
+        }
+      </div>
+    </>
   )
 }

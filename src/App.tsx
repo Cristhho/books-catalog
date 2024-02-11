@@ -1,5 +1,5 @@
-import { useBooks } from './hooks/useBooks'
-import { Home } from './pages/Home'
+import { useBooks } from '@/hooks/useBooks'
+import { Home } from '@/pages/Home'
 
 function App() {
   const { error, isPending } = useBooks()

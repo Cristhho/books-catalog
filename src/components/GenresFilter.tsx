@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { useBookStore } from '@/store/book/bookStore'
 
 type Props = {
@@ -8,9 +10,15 @@ type Props = {
 export const GenresFilter = ({ selectedGenre, onGenre }: Props) => {
   const genres = useBookStore(state => state.getGenres())
 
-  const onGenreChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    onGenre(e.target.value)
+  const onGenreChange = (genre: string) => {
+    onGenre(genre)
   }
+
+  useEffect(() => {
+    if (!genres.has(selectedGenre)) {
+      onGenreChange('')
+    }
+  }, [genres])
 
   return (
     <>
@@ -19,7 +27,7 @@ export const GenresFilter = ({ selectedGenre, onGenre }: Props) => {
         id='genre'
         className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
         value={selectedGenre}
-        onChange={onGenreChange}>
+        onChange={(e) => onGenreChange(e.target.value)}>
         <option value=''>All</option>
         {
           [...genres].map((genre) => (
