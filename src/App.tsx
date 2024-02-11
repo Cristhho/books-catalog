@@ -8,7 +8,7 @@ function App() {
   else if (isPending) return 'loading...'
 
   return (
-    <main className='mx-10'>
+    <main className='mx-10' role='main'>
       <Home />
     </main>
   )

@@ -12,6 +12,7 @@ const config: JestConfigWithTsJest =  {
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/__mocks__/fileMock.ts',
     "\\.(css)$": "<rootDir>/__mocks__/styleMock.ts"
   },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts']
 }
 
 export default config

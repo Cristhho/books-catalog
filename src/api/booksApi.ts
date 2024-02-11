@@ -1,7 +1,7 @@
-import { BooksResponseClass } from '@/model/BooksResponse'
+import { BooksResponse } from '@/model/BooksResponse'
 
-type Response = {
-  default: BooksResponseClass
+export type Response = {
+  default: BooksResponse
 }
 
 export const fetchBooks = (): Promise<Response> =>
