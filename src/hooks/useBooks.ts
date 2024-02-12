@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
 import { useBookStore } from '@/store/book/bookStore'
-import { BooksResponseClass } from '@/model/BooksResponse'
+import { BooksResponseClass } from '@/model'
 import { fetchBooks } from '@/api/booksApi'
 
 export const useBooks = () => {

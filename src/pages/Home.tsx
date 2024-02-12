@@ -1,8 +1,6 @@
 import { useState } from 'react'
 
-import { BooksList } from '@/components/BooksList'
-import { GenresFilter } from '@/components/GenresFilter'
-import { ReadingList } from '@/components/ReadingList'
+import { BooksList, GenresFilter, ReadingList } from '@/components'
 import { useBookStore } from '@/store/book/bookStore'
 import { useFilteredBooks } from '@/hooks/useFilteredBooks'
 
