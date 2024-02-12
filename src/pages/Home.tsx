@@ -1,23 +1,15 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 
 import { BooksList } from '@/components/BooksList'
 import { GenresFilter } from '@/components/GenresFilter'
 import { ReadingList } from '@/components/ReadingList'
 import { useBookStore } from '@/store/book/bookStore'
-import { Book } from '@/model'
+import { useFilteredBooks } from '@/hooks/useFilteredBooks'
 
 export const Home = () => {
-  const books = useBookStore(state => state.books)
   const readingBooks = useBookStore(state => state.reading)
   const [selectedGenre, setSelectedGenre] = useState('')
-
-  const filteredBooks = useMemo<Book[]>(() => {
-    if (!selectedGenre) {
-      return books
-    } else {
-      return books.filter((book) => book.genre === selectedGenre)
-    }
-  }, [books, selectedGenre])
+  const filteredBooks = useFilteredBooks(selectedGenre)
 
   const onGenreChange = (genre: string) => {
     setSelectedGenre(genre)
